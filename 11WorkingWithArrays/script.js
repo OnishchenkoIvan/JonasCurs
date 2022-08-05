@@ -106,3 +106,14 @@ console.log([...arr, ...arr2]);
 // join
 console.log(letters.join(' - '));
 
+// at
+const ar = [23, 11, 64];
+console.log(ar[0]);
+console.log(ar.at(0));
+
+console.log(ar[ar.length - 1]);
+console.log(ar.slice(-1)[0]);
+
+console.log(ar.at(-2));
+console.log('jonas'.at(-1));
+
