@@ -104,16 +104,32 @@ const runOnce = function () {
 runOnce();
 
 //IIFE
-(function () {
-  console.log('This will never run again');
-  const isPrivate = 23;
-})();
+// (function () {
+//   console.log('This will never run again');
+//   const isPrivate = 23;
+// })();
+//
+// console.log(isPrivate);
+//
+// (() => console.log('This will never run again'))();
+//
+// {
+//   const isPrivate = 23;
+//   var notPrivate = 46;
+// }
 
-console.log(isPrivate);
+const secureBooking = function () {
+  let passengerCount = 0;
 
-(() => console.log('This will never run again'))();
-
-{
-  const isPrivate = 23;
-  var notPrivate = 46;
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  }
 }
+
+const booker = secureBooking();
+booker();
+booker();
+booker();
+
+console.dir(booker);
