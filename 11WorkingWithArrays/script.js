@@ -71,10 +71,10 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
+
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
 /////////////////////////////////////////////////
-
+/*
 let arr = ['a', 'b', 'c', 'd', 'e'];
 // slice
 console.log(arr.slice(2));
@@ -116,4 +116,20 @@ console.log(ar.slice(-1)[0]);
 
 console.log(ar.at(-2));
 console.log('jonas'.at(-1));
+*/
 
+for (const [i, movement] of movements.entries()) {
+  if(movement > 0) {
+    console.log(`Movement ${i + 1}: You deposited ${movement}`);
+  } else {
+    console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
+  }
+}
+console.log('-----------forEach-----------');
+movements.forEach(function (movement, i, arr) {
+  if(movement > 0) {
+    console.log(`Movement ${i + 1}: You deposited ${movement}`);
+  } else {
+    console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
+  }
+})
