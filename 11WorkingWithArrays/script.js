@@ -65,11 +65,7 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
+
 
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
@@ -118,18 +114,34 @@ console.log(ar.at(-2));
 console.log('jonas'.at(-1));
 */
 
-for (const [i, movement] of movements.entries()) {
-  if(movement > 0) {
-    console.log(`Movement ${i + 1}: You deposited ${movement}`);
-  } else {
-    console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
-  }
-}
-console.log('-----------forEach-----------');
-movements.forEach(function (movement, i, arr) {
-  if(movement > 0) {
-    console.log(`Movement ${i + 1}: You deposited ${movement}`);
-  } else {
-    console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
-  }
+// for (const [i, movement] of movements.entries()) {
+//   if(movement > 0) {
+//     console.log(`Movement ${i + 1}: You deposited ${movement}`);
+//   } else {
+//     console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
+//   }
+// }
+// console.log('-----------forEach-----------');
+// movements.forEach(function (movement, i, arr) {
+//   if(movement > 0) {
+//     console.log(`Movement ${i + 1}: You deposited ${movement}`);
+//   } else {
+//     console.log(`Movement ${i + 1}: You withdrew ${Math.abs(movement)}`);
+//   }
+// });
+// Map
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+currencies.forEach(function (value,key, map) {
+  console.log(`${key}: ${value}`);
 })
+//Set
+const currenciesUnigue = new Set(['USD', 'GBP', 'USD', 'EUR',]);
+console.log(currenciesUnigue);
+currenciesUnigue.forEach(function (value,key,string) {
+  console.log(`${key}: ${value}`);
+});
