@@ -165,3 +165,10 @@ console.log(movementsUSDfor);
 const movementsDescriptions = movements.map((mov, i, arr) => `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(mov)}`);
 console.log(movementsDescriptions);
 
+const deposits = movements.filter(function (mov) {
+  return mov > 0;
+})
+console.log(deposits);
+
+const withdrawls = movements.filter(mov => mov < 0);
+console.log(withdrawls)
