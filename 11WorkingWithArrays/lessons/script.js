@@ -68,7 +68,7 @@ const inputClosePin = document.querySelector('.form__input--pin');
 
 
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
 /////////////////////////////////////////////////
 /*
 let arr = ['a', 'b', 'c', 'd', 'e'];
@@ -145,3 +145,22 @@ console.log(currenciesUnigue);
 currenciesUnigue.forEach(function (value,key,string) {
   console.log(`${key}: ${value}`);
 });
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const eurToUsd = 1.1;
+const movementsUSD = movements.map(function (mov) {
+  return mov * eurToUsd;
+});
+
+const movementsUSDArrow = movements.map(mov => mov * eurToUsd);
+
+console.log(movements);
+console.log(movementsUSD);
+
+const movementsUSDfor = [];
+for(const mov of movements) movementsUSDfor.push(mov * eurToUsd);
+console.log(movementsUSDfor);
+
+const movementsDescriptions = movements.map((mov, i, arr) => `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(mov)}`);
+console.log(movementsDescriptions);
