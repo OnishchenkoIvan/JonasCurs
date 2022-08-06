@@ -164,3 +164,4 @@ console.log(movementsUSDfor);
 
 const movementsDescriptions = movements.map((mov, i, arr) => `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(mov)}`);
 console.log(movementsDescriptions);
+
