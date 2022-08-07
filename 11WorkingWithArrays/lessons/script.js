@@ -135,7 +135,7 @@ const currencies = new Map([
   ['EUR', 'Euro'],
   ['GBP', 'Pound sterling'],
 ]);
-
+/*
 currencies.forEach(function (value,key, map) {
   console.log(`${key}: ${value}`);
 })
@@ -299,5 +299,34 @@ console.log(z);
 
 const randomDice = Array.from({length: 100}, () => Math.round((Math.random() * 5) + 1));
 console.log(randomDice);
+*/
+//array methods Practice
+// 1.
+const bankDepositSum = accounts.flatMap(acc => acc.movements)
+  .filter(mov => mov > 0)
+  .reduce((sum, cur) => sum + cur, 0);
 
+console.log(bankDepositSum);
+// 2.
+const numDeposits1000 = accounts.flatMap(acc => acc.movements)
+//  .filter(mov => mov >= 1000).length;
+//   .reduce((count, cur) => (cur >= 1000 ? count + 1 : count), 0);
+  .reduce((count, cur) => (cur >= 1000 ? count + 1 : count), 0);
 
+console.log(numDeposits1000);
+// 3.
+const { deposits, withdrawals } = accounts.flatMap(acc => acc.movements)
+  .reduce((sums, cur) => {
+  //cur > 0 ? (sums.deposits += cur) : (sums.withdrawls += cur);
+    sums[cur > 0 ? 'deposits' : 'widthdrawals'] += cur;
+  return sums;
+}, {deposits: 0, withdrawals: 0});
+console.log(deposits, withdrawals);
+
+//4.
+// this is a nice title -> This Is a Nice Title
+const convertTitleCase = function (title) {
+
+}
+console.log(convertTitleCase('this is a nice title'));
+console.log('this is a LONG title but not too long');
