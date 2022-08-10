@@ -318,3 +318,29 @@ const transferFee2 = 1_500;
 const PI = 3.1415;
 console.log(PI);
 console.log(Number('230_000'));
+
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(2 ** 53 + 1);
+console.log(2 ** 53 + 2);
+console.log(2 ** 53 + 3);
+console.log(2 ** 53 + 4);
+console.log(564464648795648979842156489746454656548974n);
+console.log(BigInt(564464648795648979842156489746454656548974));
+
+// Operations
+console.log(10000n + 10000n);
+
+const huge = 20289830237283728378237n;
+const num = 23;
+console.log(huge * BigInt(num));
+
+console.log(20n > 15);
+console.log(20n === 20);
+console.log(typeof  20n);
+console.log(20n == '20');
+
+console.log(huge + " is REALLY big!!!");
+// console.log(Math.sqrt(16n));
+
+console.log(12n / 3n);
