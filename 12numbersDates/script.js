@@ -285,7 +285,7 @@ console.log((2.7).toFixed(3));
 console.log((2.345).toFixed(2));
 console.log(+(2.345).toFixed(2));
 */
-
+/*
 console.log(5 % 2);
 
 console.log(8 % 3);
@@ -344,3 +344,36 @@ console.log(huge + " is REALLY big!!!");
 // console.log(Math.sqrt(16n));
 
 console.log(12n / 3n);
+*/
+
+// Create a date
+const now = new Date();
+console.log(now);
+
+console.log(new Date('Aug 10 2022 13:06:40'));
+console.log(new Date('December 24, 2015'));
+console.log(new Date(account1.movementsDates[0]));
+
+console.log(new Date(2037, 10, 19, 15, 23, 5));
+console.log(new Date(0));
+console.log(new Date(3 * 24 * 60 * 60 * 1000));
+
+// working with dates
+const future = new Date(2037, 10, 19, 15, 23);
+console.log(future);
+console.log(future.getFullYear());
+console.log(future.getMonth());
+console.log(future.getDate());
+console.log(future.getDay());
+console.log(future.getHours());
+console.log(future.getMinutes());
+console.log(future.getSeconds());
+
+console.log(future.toISOString());
+console.log(future.getTime());
+
+console.log(new Date(2142256980000));
+console.log(Date.now());
+
+future.setFullYear(2040);
+console.log(future);
