@@ -93,11 +93,11 @@ const formatMovementDate = function (date, locale) {
   //   const year = date.getFullYear();
   //   return `${day}/${month}/${year}`;
   // }
-  return  new Intl.DateTimeFormat(locale).format(date);
+  return new Intl.DateTimeFormat(locale).format(date);
 };
 
 const formatCur = function (value, locale, currency) {
-  return  new Intl.NumberFormat(locale, {
+  return new Intl.NumberFormat(locale, {
     style: 'currency',
     currency: currency,
   }).format(value);
@@ -129,7 +129,8 @@ const displayMovements = function (acc, sort = false) {
 
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = formatCur(acc.balance, acc.locale, acc.currency);;
+  labelBalance.textContent = formatCur(acc.balance, acc.locale, acc.currency);
+  ;
 };
 
 const calcDisplaySummary = function (acc) {
@@ -237,12 +238,13 @@ btnLoan.addEventListener('click', function (e) {
   const amount = Number(inputLoanAmount.value);
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
     //Add movement
-    currentAccount.movements.push(amount);
+    setTimeout(function () {
+      currentAccount.movements.push(amount);
 
-
-    currentAccount.movementsDates.push(new Date().toISOString());
-    //update ui
-    updateUI(currentAccount)
+      currentAccount.movementsDates.push(new Date().toISOString());
+      //update ui
+      updateUI(currentAccount)
+    }, 2500);
   }
   inputLoanAmount.value = '';
 })
