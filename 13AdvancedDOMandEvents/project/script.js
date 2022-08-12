@@ -116,7 +116,7 @@ const handleHover = function (e, opacity) {
     const logo = link.closest('.nav').querySelector('img');
 
     siblings.forEach(el => {
-      if(el !== link) el.style.opacity = this;
+      if (el !== link) el.style.opacity = this;
     });
     logo.style.opacity = this;
   }
@@ -124,6 +124,17 @@ const handleHover = function (e, opacity) {
 
 nav.addEventListener('mouseover', handleHover.bind(0.5));
 nav.addEventListener('mouseout', handleHover.bind(1));
+
+//sticky navigation
+const initialCoords = section1.getBoundingClientRect();
+console.log(initialCoords);
+
+window.addEventListener('scroll', function () {
+  console.log(window.scrollY);
+
+  if (window.scrollY > initialCoords.top) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+})
 
 ///////////////////////////////////////////=========================
 //selecting elements
