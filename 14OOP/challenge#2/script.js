@@ -30,4 +30,5 @@ ford.addSpeed();
 ford.addSpeed();
 ford.lowSpeed();
 ford.speedUS = 50;
-console.log(ford)
+console.log(ford);
+

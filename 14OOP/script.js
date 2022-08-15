@@ -1,16 +1,7 @@
 'use strict';
 
-const Person = function (firstName, birthYear) {
-  // Instance properties
-  this.firstName = firstName;
-  this.birthYear = birthYear;
 
-  // Never to this
-  // this.calcAge = function () {
-  //   console.log(2037 - this.birthYear);
-  // };
-};
-
+/*
 const jonas = new Person('Jonas', 1991);
 console.log(jonas);
 
@@ -36,9 +27,7 @@ Person.hey();
 // Prototypes
 console.log(Person.prototype);
 
-Person.prototype.calcAge = function () {
-  console.log(2037 - this.birthYear);
-};
+
 
 jonas.calcAge();
 matilda.calcAge();
@@ -175,3 +164,48 @@ console.log(steven.__proto__ === PersonProto);
 const sarah = Object.create(PersonProto);
 sarah.init('Sarah', 1979);
 sarah.calcAge();
+
+ */
+////////////////////////////////218
+const Person = function (firstName, birthYear) {
+  // Instance properties
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+
+  // Never to this
+  // this.calcAge = function () {
+  //   console.log(2037 - this.birthYear);
+  // };
+};
+
+
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
+
+const Student = function (firstName, birthYear, course) {
+  Person.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+// Linking prototypes
+Student.prototype = Object.create(Person.prototype)
+
+
+Student.prototype.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+}
+
+const mike = new Student('Mike', 2020, 'Computer Science');
+mike.introduce();
+mike.calcAge();
+
+console.log(mike.__proto__);
+console.log(mike.__proto__.__proto__);
+
+console.log(mike instanceof Student);
+console.log(mike instanceof Person);
+console.log(mike instanceof Object);
+
+Student.prototype.constructor = Student;
+console.log(Student.prototype.constructor)
